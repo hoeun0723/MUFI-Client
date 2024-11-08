@@ -10,5 +10,5 @@ border: 1px solid black;
 
 export const NavBtn = styled.div`
 width: 15rem;
-${({ theme }) => theme.fonts.heading_03}
+${({ theme }) => theme.fonts.r_20}
 `;
