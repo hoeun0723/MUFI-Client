@@ -5,6 +5,8 @@ import Introduce from '../pages/Introduce/Introduce';
 import Gallery from '../pages/Gallery/Gallery';
 import Reservation from '../pages/Reservation/Reservation';
 import QnA from '../pages/QnA/QnA';
+import CustomFrame from '../pages/CustomFrame/CustomFrame';
+import Login from '../pages/Login/Login';
 
 const router = createBrowserRouter([
   {
@@ -28,8 +30,16 @@ const router = createBrowserRouter([
         element: <Reservation/>,
       },
       {
+        path: '/custom-frame',
+        element: <CustomFrame/>,
+      },
+      {
         path: '/qna',
         element: <QnA/>,
+      },
+      {
+        path: '/login',
+        element: <Login/>,
       },
     ]
   }
