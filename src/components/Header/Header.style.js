@@ -1,36 +1,43 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.header`
-${({ theme: { mixin } }) => mixin.flexBox({ align: 'center'})};
-width:100%;
-height:11rem;
-background-color: white;
-padding: 0 6rem;
-box-shadow: 0 2px 5px gray;
+  ${({ theme: { mixin } }) => mixin.flexBox({ justify:'space-between',align: 'center'})};
+  
+  height:11rem;
+  padding: 1rem 5rem;
+  padding-left: 8rem;
+  background-color: white;
+  box-shadow: 0 2px 5px gray;
 `;
 
 export const Logo = styled.div`
 display: flex;
-margin : 0 60.6rem 0 11.3rem;
+position: relative;
+left:-10%;
 `;
 
-export const NavWrapper = styled.div`
-${({ theme: { mixin } }) => mixin.flexBox({justify:'space-between', align: 'center'})};
-width:65.8rem;
+export const Nav = styled.nav`
+${({ theme: { mixin } }) => mixin.flexBox({align: 'center'})};
 height:11rem;
-margin : 0 0 0 3rem;
+  gap: 3rem;
 `;
 
-export const NavBtn = styled.div`
+export const NavLink = styled.a`
 ${({ theme }) => theme.fonts.r_20};
-color: ${({ theme }) => theme.colors.black};
-`;
-export const NavRedBtn = styled.div`
-${({ theme }) => theme.fonts.r_20};
-color: ${({ theme }) => theme.colors.dark_red};
-`;
+  text-decoration: none;
+  color: ${({ theme, isSpecial }) => 
+    isSpecial ? theme.colors.dark_red : theme.colors.black};
+  cursor: pointer;
 
-export const LoginPageBtn = styled.div`
+  &:hover {
+    color: ${({ theme }) => theme.colors.dark_red};
+  }
+
+  &.active {
+    ${({ theme }) => theme.fonts.b_20};
+  }
+`;
+export const Login = styled.div`
 ${({ theme: { mixin } }) => mixin.flexBox({ align: 'center'})};
 gap: 1.4rem;
 height: 4.4rem;

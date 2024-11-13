@@ -1,92 +1,89 @@
 import styled from "styled-components";
 
-export const FooterWrapper = styled.div`
-${({ theme: { mixin } }) => mixin.flexBox({direction: 'column'})};
-position: relative;
-bottom:0;
+export const FooterWrapper = styled.footer`
+display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 width: 100%;
 height:52rem;
 background-color: ${({ theme }) => theme.colors.black};
 color: white;
 `;
 
-export const ServiceContent = styled.div`
+export const DeveloperSection = styled.div`
 display: flex;
-justify-content: flex-end;
-position:relative;
-width:100%;
-padding-right: 7.3rem;
-top: -10rem;
-gap: 5.7rem;
+flex-direction: column;
 `;
 
 
-export const SnsNav = styled.div`
-display: flex;
-gap: 2.2rem;
+export const InfoText = styled.p`
+  ${({ theme }) => theme.fonts.r_17_44_5};
+  margin-left: 8rem;
+  width: 65rem;
+  color: rgba(255, 255, 255, 0.50);
 `;
 
-export const Terms = styled.div`
+export const Developers = styled.div`
 display: flex;
-gap: 3.9rem;
-`;
-
-export const TermContent = styled.div`
-display: flex;
-${({ theme }) => theme.fonts.r_20};
-color: rgba(255, 255, 255, 0.70);
-`;
-
-export const Logo = styled.div`
-display: flex;
-position:relative;
-top: 7.2rem;
-left:10.2rem;
-
-`;
-
-export const AdditionalContent = styled.div`
-display: flex;
-justify-content: space-between;
-width:100%;
-padding: 0 14.7rem 0 10.2rem;
-`;
-
-export const CompanyInfo = styled.div`
-display: flex;
-color: rgba(255, 255, 255, 0.50);
-${({ theme }) => theme.fonts.r_20_44_5};
-margin-top: 2rem;
+width: 80%;
+  margin-bottom: 4rem;
+  position: relative;
+  top: 15rem;
+  ${({ theme }) => theme.fonts.r_40};
 `;
 
 export const DeveloperInfo = styled.div`
-display: flex;
-flex-direction: column;
-gap:4.5rem;
+  display: flex;
+  width: 80%;
+  position: relative;
+  top: 15rem;
+  margin: 2rem 0;
+  justify-content: space-between;
+  ${({ theme }) => theme.fonts.r_17};
+  color: rgba(255, 255, 255, 0.70);
 
-span {
-    ${({ theme }) => theme.fonts.r_40};
-    color: white;
-}
+  & > span {
+    text-align: right;
+  }
 `;
 
-export const Develeopers = styled.div`
-${({ theme: { mixin } }) => mixin.flexBox({direction: 'column', align:'space-between'})};
-width: 100%;
-gap:2.2rem;
+export const SocialIcons = styled.div`
+  display: flex;
+  position: relative;
+  top: 3.5rem;
+  right: 20rem;
+  gap: 1.5rem;
+  ${({ theme }) => theme.fonts.r_17};
 `;
 
-export const Developer = styled.div`
+export const Links = styled.div`
+  display: flex;
+  position: relative;
+  right: 5rem;
+  justify-content: space-between;
+ 
+  ${({ theme }) => theme.fonts.r_17};
+  color: rgba(255, 255, 255, 0.70);
+
+  & > p {
+    cursor: pointer;
+    ${({ theme }) => theme.fonts.r_17};
+    width: 17rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+
+export const Logo = styled.div`
 display: flex;
-justify-content: space-between;
-color: white;
-margin-left: 1.9rem;
+margin-top: 7rem;
+  margin-left: 8rem;
+  img {
+    width: 300px;
+    height: 168.75px;
+  }
 
-width: 57rem;
-${({ theme }) => theme.fonts.r_20};
-
-span {
-    ${({ theme }) => theme.fonts.r_20};
-    color: rgba(255, 255, 255, 0.50);
-}
 `;
