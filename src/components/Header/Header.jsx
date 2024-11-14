@@ -10,57 +10,55 @@ function Header() {
 
   const handleClick = (link) => {
     setActiveLink(link);
+    navigate(link);
   };
-    const navLoginPage = ()=> {
-        navigate('/login');
-    }
 
     return (
         <S.HeaderWrapper>
             <S.Nav>
             <S.NavLink
-          href="#"
+          href="/introduce"
           isSpecial={false}
-          onClick={() => handleClick("기업소개")}
+          onClick={() => handleClick("/introduce")}
           className={activeLink === "기업소개" ? "active" : ""}
         >
           기업소개
         </S.NavLink>
         <S.NavLink
-          href="#"
+          href="/gallery"
           isSpecial={false}
-          onClick={() => handleClick("갤러리")}
+          onClick={() => handleClick("/gallery")}
           className={activeLink === "갤러리" ? "active" : ""}
         >
           갤러리
         </S.NavLink>
         <S.NavLink
-          href="#"
+          href="/reservation"
           isSpecial={true}
-          onClick={() => handleClick("견적문의")}
+          onClick={() => handleClick("/reservation")}
           className={activeLink === "견적문의" ? "active" : ""}
         >
           견적문의
         </S.NavLink>
         <S.NavLink
-          href="#"
+          href="/custom-frame"
           isSpecial={true}
-          onClick={() => handleClick("내 프레임")}
+          onClick={() => handleClick("/custom-frame")}
           className={activeLink === "내 프레임" ? "active" : ""}
         >
           내 프레임
         </S.NavLink>
         <S.NavLink
-          href="#"
+          href="/qna"
           isSpecial={false}
-          onClick={() => handleClick("Q & A")}
+          onClick={() => handleClick("/qna")}
           className={activeLink === "Q & A" ? "active" : ""}
         >
           Q & A
         </S.NavLink>
             </S.Nav>
-            <S.Logo><img src={MufiLogo}/></S.Logo>
-            <S.Login onClick={()=>navLoginPage}><IcUser/><div>로그인 해주세요</div></S.Login>
+            <S.Logo onClick={()=>navigate('/')}><img src={MufiLogo}/></S.Logo>
+            <S.Login onClick={()=>navigate('/login')}><IcUser/><div>로그인 해주세요</div></S.Login>
         </S.HeaderWrapper>
     );
 }
