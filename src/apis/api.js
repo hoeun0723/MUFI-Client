@@ -35,22 +35,22 @@ export const instance = axios.create({
 
   
   export function get(...args) {
-    return serverInstance.get(...args);
+    return instance.get(...args);
   }
   
   export function post(...args) {
-    return serverInstance.post(...args);
+    return instance.post(...args);
   }
   
   export function put(...args) {
-    return serverInstance.put(...args);
+    return instance.put(...args);
   }
   
   export function patch(...args) {
-    return serverInstance.patch(...args);
+    return instance.patch(...args);
   }
   
   export function del(...args) {
-    return serverInstance.delete(...args);
+    return instance.delete(...args);
   }
   
