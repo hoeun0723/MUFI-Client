@@ -17,3 +17,12 @@ export const FrameImage = styled.img`
     object-fit: contain;
     z-index: 1;
 `;
+
+export const PhotoImage = styled.img`
+    position: absolute;
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: cover;
+    z-index: 0;
+    font-size: 2rem;
+`;

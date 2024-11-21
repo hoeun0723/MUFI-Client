@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './Gallery.style';
 import SlideMenu from '../../components/SlideMenu/SlideMenu';
 import GalleryPhoto from '../../components/GalleryPhoto/GalleryPhoto';
+import { get } from '../../apis/api';
 
 function Gallery() {
     const photos = Array.from({ length: 10 }, (_, index) => ({
         id: index + 1,
-        image: `catphoto_${index + 1}`
+        image: `${index + 1}`
     }));
 
     const [currentIndex, setCurrentIndex] = useState(0);
