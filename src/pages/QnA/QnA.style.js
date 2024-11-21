@@ -20,7 +20,7 @@ export const TitleGroup = styled.div`
   gap: 15.4rem;
   margin-top: 10.7rem; /*중앙*/
   margin-bottom: 10.7rem; 
-  width: 100%;햐
+  width: 100%;
 `;
 
 export const SectionTitle = styled.div`
@@ -47,6 +47,59 @@ export const QuestionGroup = styled.div`
   position: relative;
   margin-bottom: ${({ activeTab }) => (activeTab === "FAQ" ? "7.9rem" : "7.9rem")}; /* FAQ와 푸터 사이 간격 조정 */
 `;
+
+//faq버튼 부븐
+export const FaqDetailWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 130rem; /* QuestionGroup과 동일한 너비 */
+  height: 80rem;
+  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: 4rem;
+  padding: 5rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 7.9rem;
+  margin-top: 10.7rem;
+`;
+
+export const BackButton = styled.button`
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.black};
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top:10rem;
+  margin-bottom: -8rem;
+  margin-left: 29rem; /* 왼쪽 여백 */
+  align-self: flex-start; /* 부모 컨테이너 기준 왼쪽 정렬 */
+`;
+
+export const FaqDetailTitle = styled.h2`
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+`;
+
+export const DividerLine = styled.div`
+  width: 100%;
+  height: 0.2rem;
+  background-color: ${({ theme }) => theme.colors.black};
+  margin: 3rem 0;
+  z-index: 1; /* 다른 요소 위에 보이도록 설정 */
+  position: relative; /* 위치 설정 */
+`;
+
+export const FaqDetailContent = styled.p`
+  font-size: 2.4rem;
+  line-height: 3rem;
+  color: ${({ theme }) => theme.colors.dark_grey};
+  margin-top:5rem;
+`;
+
 //qna쪽
 export const QuestionContainer = styled.div`
   display: flex;

@@ -5,15 +5,16 @@ import React, { useState } from 'react';
 function QnA () {
     const [activeTab, setActiveTab] = useState("FAQ"); //usestate 이용
     const [isWriting, setIsWriting] = useState(false); //작성모드상태 추가
+    const [selectedFaq, setSelectedFaq] = useState(null);
 
     // FAQ와 Q&A의 질문 목록
     const faqQuestions = [
-        "인화사이즈는 어떻게 되나요?",
-        "촬영부스 인원 제한이 있나요?",
-        "부스는 최대 몇 개까지 대여 가능한가요?",
-        "예약을 취소하거나 변경하고 싶습니다."
+        { id: 1, title: "인화사이즈는 어떻게 되나요?", content: "인화사이즈는 A4, A5 사이즈를 지원합니다." },
+        { id: 2, title: "촬영부스 인원 제한이 있나요?", content: "촬영부스는 최대 4명까지 가능합니다." },
+        { id: 3, title: "부스는 최대 몇 개까지 대여 가능한가요?", content: "최대 3개까지 대여가 가능합니다." },
+        { id: 4, title: "예약을 취소하거나 변경하고 싶습니다.", content: "예약 취소 및 변경은 예약일 기준 3일 전까지 가능합니다." },
     ];
-
+    
     const qnaQuestions = [
         { question: "인화사이즈는 어떻게 되나요?", answered: false },
         { question: "촬영부스 인원 제한이 있나요?", answered: true },
@@ -30,14 +31,30 @@ function QnA () {
         setIsWriting(false); // 작성 모드를 종료
     };
 
-    // 각 질문 버튼을 클릭할 때 호출되는 함수
-    const handleQuestionClick = (question) => {
-        console.log("Selected question:", question);
-        // 이곳에 상세 페이지 이동 또는 팝업 표시 등의 동작을 추가할 수 있습니다.
+    // FAQ 질문 클릭 시 상세보기 화면으로 전환
+    const handleFaqClick = (faq) => {
+        setSelectedFaq(faq);
+    };
+
+    // 상세보기 화면에서 목록으로 돌아가기
+    const handleBackClick = () => {
+        setSelectedFaq(null);
     };
     
     return (
         <S.QnAWrapper>
+            {selectedFaq ? (
+            <>
+            <S.BackButton onClick={handleBackClick}>← BACK</S.BackButton>
+            <S.FaqDetailWrapper>
+                <S.FaqDetailTitle>{selectedFaq.title}</S.FaqDetailTitle>
+                <S.DividerLine />
+                <S.FaqDetailContent>{selectedFaq.content}</S.FaqDetailContent>
+            </S.FaqDetailWrapper>
+            </>
+        ) : (
+            // FAQ 목록 화면
+            <>
             <S.TitleGroup>
                 {/*QnA와 FAQ 타이틀 그룹 */}
                 <S.SectionTitle
@@ -74,9 +91,9 @@ function QnA () {
                     </>
                 ) : (
                     activeTab === "FAQ"
-                    ? faqQuestions.map((question, index) => (
-                        <S.QuestionBox key={index} activeTab={activeTab}>
-                                {question}
+                    ? faqQuestions.map((faq) => (
+                        <S.QuestionBox key={faq.id} onClick={() => handleFaqClick(faq)}>
+                                {faq.title}
                             </S.QuestionBox>
                         ))
                         : qnaQuestions.map((item, index) => (
@@ -92,7 +109,7 @@ function QnA () {
                     ))
                 )}
             </S.QuestionGroup>
-
+            
             
             {/* Q&A 탭일 때만 페이지네이션을 표시 */}
             {activeTab === "Q&A" && (
@@ -101,12 +118,11 @@ function QnA () {
                     <S.PageDot />
                 </S.PaginationWrapper>
             )}
-
+            </>
+            )}
         </S.QnAWrapper>
-    )
+    );
 }
 
+
 export default QnA;
-
-
-
