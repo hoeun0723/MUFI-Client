@@ -26,3 +26,9 @@ color: white;
 ${({ theme }) => theme.fonts.b_32};
 border-radius: 10px;
 `;
+
+export const Logout = styled.button`
+margin-top: 2rem;
+${({ theme }) => theme.fonts.b_20};
+border-radius: 10px;
+`;

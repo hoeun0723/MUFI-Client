@@ -7,6 +7,7 @@ import Reservation from '../pages/Reservation/Reservation';
 import QnA from '../pages/QnA/QnA';
 import CustomFrame from '../pages/CustomFrame/CustomFrame';
 import Login from '../pages/Login/Login';
+import LoginCallback from '../components/KakaoLogin/LoginCallback/LoginCallback';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home/>,
+      },
+      {
+        path: '/loading',
+        element: <LoginCallback />,
       },
       {
         path: '/introduce',
