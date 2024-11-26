@@ -10,6 +10,14 @@ function Login() {
         console.log(isToken);
         console.log(localStorage.getItem('LOGIN_TOKEN'));
       }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem('LOGIN_TOKEN');
+        localStorage.removeItem('LOGIN_REFRESH_TOKEN');
+        localStorage.removeItem('MemberId');
+        localStorage.removeItem('USER_NAME');
+        navigate('/');
+    }
     return (
         <S.LoginWrapper>
             <S.Login>Login</S.Login>
@@ -25,6 +33,7 @@ function Login() {
                 <S.BtnLoginComplete onClick={()=> navigate('/')}>메인으로 돌아가기</S.BtnLoginComplete>
                 </>
             )}
+            <S.Logout onClick={handleLogout}>로그아웃</S.Logout>
         </S.LoginWrapper>
     )
 };

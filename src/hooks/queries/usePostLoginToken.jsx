@@ -1,12 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { postLoginToken } from '../../apis/kakaoapi/postLoginToken';
-import { useRecoilState } from 'recoil';
-import { memberIdState } from '../../recoil/atoms';
 
 const usePostLoginToken = () => {
   const navigate = useNavigate();
-  const [memberId, setMemberId] = useRecoilState(memberIdState);
 
   const mutation = useMutation({
     mutationFn: async (token) => {
@@ -20,7 +17,7 @@ const usePostLoginToken = () => {
         window.localStorage.setItem('LOGIN_TOKEN', tokenDto.accessToken);
         window.localStorage.setItem('LOGIN_REFRESH_TOKEN', tokenDto.refreshToken);
         window.localStorage.setItem('MemberId', data.memberId);
-        setMemberId(data.memberId);
+        window.localStorage.setItem('USER_NAME',data.socialNickname);
         console.log('로그인 성공!');
         navigate('/');
       }
