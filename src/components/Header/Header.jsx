@@ -2,11 +2,24 @@ import { useNavigate } from 'react-router-dom';
 import * as S from './Header.style';
 import { IcUser } from '../../assets/svg';
 import MufiLogo from '../../assets/png/MufiLogoBlack.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Header() {
     const navigate = useNavigate();
     const [activeLink, setActiveLink] = useState(null);
+    const [userName, setUserName] = useState(localStorage.getItem('USER_NAME'));
+
+    useEffect(() => {
+        const handleStorageChange = () => {
+            setUserName(localStorage.getItem('USER_NAME'));
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []);
 
   const handleClick = (link) => {
     setActiveLink(link);
@@ -58,7 +71,7 @@ function Header() {
         </S.NavLink>
             </S.Nav>
             <S.Logo onClick={()=>navigate('/')}><img src={MufiLogo}/></S.Logo>
-            <S.Login onClick={()=>navigate('/login')}><IcUser/><div>로그인 해주세요</div></S.Login>
+            <S.Login onClick={()=>navigate('/login')}><IcUser/><div>{userName ? `${userName}님, 환영합니다` : "로그인 해주세요"}</div></S.Login>
         </S.HeaderWrapper>
     );
 }
