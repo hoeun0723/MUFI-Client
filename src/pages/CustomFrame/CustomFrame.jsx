@@ -90,7 +90,7 @@ function CustomFrame () {
                 <S.ColorSection>
                     <S.ThemeLabel>프레임 색상</S.ThemeLabel>
                     <S.FrameColorGroup>
-                        <S.ColorOption color="red" onClick={() => handleColorChange('red')} />
+                        <S.ColorOption color="#49BEBA" onClick={() => handleColorChange('#49BEBA')} />
                         <S.ColorOption color="blue" onClick={() => handleColorChange('blue')} />
                         <S.ColorOption color="yellow" onClick={() => handleColorChange('yellow')} />
                         <S.ColorOption color="green" onClick={() => handleColorChange('green')} />

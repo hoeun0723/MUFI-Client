@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { AiTwotoneLeftCircle, AiTwotoneRightCircle } from "react-icons/ai";
+import { AiTwotoneLeftCircle, AiTwotoneRightCircle} from "react-icons/ai";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export const GalleryWrapper = styled.div`
     ${({ theme }) => theme.fonts.b_55_60}
@@ -42,7 +43,9 @@ export const ArrowButton = styled.button`
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-    margin: 0 13rem;
+    margin: 0 20rem;
+    background-color: unset; 
+    box-shadow: none; 
 
     &.left {
         left: 1rem;
@@ -53,12 +56,12 @@ export const ArrowButton = styled.button`
     }
 `;
 
-export const LeftIcon = styled(AiTwotoneLeftCircle)`
+export const LeftIcon = styled(IoIosArrowBack)`
     color: #000000;
     font-size: 10rem;
 `;
 
-export const RightIcon = styled(AiTwotoneRightCircle)`
+export const RightIcon = styled(IoIosArrowForward)`
     color: #000000;
     font-size: 10rem;
 `;
