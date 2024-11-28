@@ -9,6 +9,7 @@ export const GalleryPhotoWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 `;
 
 export const FrameImage = styled.img`
@@ -16,12 +17,13 @@ export const FrameImage = styled.img`
     max-height: 100%;
     object-fit: contain;
     z-index: 1;
+    position: relative;
 `;
 
 export const PhotoImage = styled.img`
     position: absolute;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 100%; 
+    max-height: 100%;
     object-fit: cover;
     z-index: 0;
     font-size: 2rem;

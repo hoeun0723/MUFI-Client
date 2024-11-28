@@ -2,7 +2,7 @@ import * as S from './Introduce.style';
 import MufiLogo from '../../assets/svg/무피로고.svg';
 import MuinfilmLogo from '../../assets/png/image 2.png';
 import HistoryImage from '../../assets/svg/회사 연혁.svg';
-import PortfolioImage from '../../assets/svg/스크린샷 2024-11-10 오후 4.48.21 1.svg'; 
+import PortfolioImage from '../../assets/svg/Brands.svg'; 
 
 
 

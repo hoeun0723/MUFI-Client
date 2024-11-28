@@ -16,10 +16,19 @@ export const HomeArticleWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 `;
 
 export const HomeArticle = styled.img`
-    height: 60rem;
+    height: auto;
+    max-width: 50rem;
+    max-height: 100%;
+    object-fit: contain;
+
+    opacity: ${({ fade }) => (fade ? 1 : 0)}; 
+    transition: opacity 0.5s ease-in-out; 
 `;
 
 export const CustomSlideMenuWrapper = styled.div`
