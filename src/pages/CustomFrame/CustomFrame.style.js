@@ -88,7 +88,7 @@ export const AvatarLabel = styled.div`
   font-weight: 600;
   text-align: center;
 `;
-//아바타 생성
+//생성아바타 이동
 export const DraggableAvatar = styled.img`
   width: 10rem;
   height: 10rem;
@@ -106,10 +106,10 @@ export const PreviewSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30rem; 
+  width: 31rem; 
   background-color: ${(props) => props.bgColor || 'white'};
-  padding: 5px;
-  padding-bottom: 5rem; /* 프레임 하단에 여백 추가 */
+  padding: 2.5rem 10rem;
+  padding-bottom: 8rem; /* 프레임 하단에 여백 추가 */
   position: relative;
   overflow: hidden; /* 프레임을 벗어난 요소 숨기기 */
 `;
