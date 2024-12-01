@@ -31,7 +31,7 @@ export const BackgroundText = styled.div`
 //소개글1//
 export const DescriptionText = styled.div`
   position: absolute;
-  top: 45%; /* BackgroundText 아래 적절한 위치 조정 */
+  top: 55%; /* BackgroundText 아래 적절한 위치 조정 */
   left: 50%;
   transform: translateX(-50%);
   color: ${({ theme }) => theme.colors.gray};

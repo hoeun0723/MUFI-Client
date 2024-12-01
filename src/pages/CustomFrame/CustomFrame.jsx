@@ -9,11 +9,12 @@ function CustomFrame () {
     const [avatars, setAvatars] = useState([]); // 프레임에 추가된 아바타들
     // 상태 추가: 선택된 색상
     const [frameColor, setFrameColor] = useState('#ffffff'); // 초기값은 흰색
+    
 
     // 아바타 클릭 시 추가
-    const handleAvatarClick = (src) => {
+    const handleAvatarClick = (src, x, y) => {
         setAvatars((prev) => {
-            const newAvatar = { id: Date.now(), src, x: 0, y: 0 };
+            const newAvatar = { id: Date.now(), src, x, y };
             console.log('Adding new avatar:', newAvatar);
             return [...prev, newAvatar];
         });
@@ -52,19 +53,19 @@ function CustomFrame () {
                 <S.AvatarSection>
                     <S.AvatarLabel>무피냥이 아바타</S.AvatarLabel>
                     <S.AvatarImage
-                    src={AvatarImage}
-                    alt="image3"
-                    onClick={() => handleAvatarClick(AvatarImage)}
+                        src={AvatarImage}
+                        alt="image3"
+                        onClick={() => handleAvatarClick(AvatarImage, 0, -300)}
                     />
                     <S.AvatarImage
                         src={AvatarImage}
                         alt="image3"
-                        onClick={() => handleAvatarClick(AvatarImage)}
+                        onClick={() => handleAvatarClick(AvatarImage, 0, -100)}
                     />
                     <S.AvatarImage
                         src={AvatarImage}
                         alt="image3"
-                        onClick={() => handleAvatarClick(AvatarImage)}
+                        onClick={() => handleAvatarClick(AvatarImage, 0, 100)}
                     />
                 </S.AvatarSection>
 
@@ -74,8 +75,8 @@ function CustomFrame () {
                     <Draggable
                         key={avatar.id}
                         defaultPosition={{ x: avatar.x, y: avatar.y}}
-                        bounds="parent" // 프레임 안에서만 이동 가능
-                        onStop={(e, data) => handleStop(avatar.id, data)} // 드래그 종료 시 위치 업데이트
+                        
+                        onStop={(e, data) => handleStop(avatar.id, data)}
                     >
                         <S.DraggableAvatar src={avatar.src} alt="draggable-avatar" />
                     </Draggable>
