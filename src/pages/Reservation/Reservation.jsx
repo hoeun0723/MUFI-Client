@@ -6,9 +6,9 @@ import { BsDashLg } from "react-icons/bs";
 import usePostReservForm from '../../hooks/queries/usePostReservForm';
 
 function Reservation() {
-  const [selectedYear, setSelectedYear] = useState(2024);
-  const [selectedMonth, setSelectedMonth] = useState(1);
-  const [selectedDay, setSelectedDay] = useState(1);
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1); // 월은 0부터 시작하므로 +1
+  const [selectedDay, setSelectedDay] = useState(new Date().getDate());
   const [daysInMonth, setDaysInMonth] = useState(31);
 
   const [formData, setFormData] = useState({
@@ -23,13 +23,14 @@ function Reservation() {
     fileName: '',
   });
 
+  const [errors, setErrors] = useState({});
   const [distance, setDistance] = useState('약 0.0km');
   const [price, setPrice] = useState('₩ 500,000');
-
   const postReservFormMutation = usePostReservForm();
 
   const handleInputChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
+    setErrors({ ...errors, [field]: '' }); // 입력 변경 시 에러 메시지 초기화
 
     if (field === 'address') {
       updateDistanceAndPrice(value);
@@ -37,36 +38,23 @@ function Reservation() {
   };
 
   const updateDistanceAndPrice = (address) => {
-    if (address.includes('서울')) {
-      setDistance('약 107km');
-      setPrice('₩ 700,000');
-    } else if (address.includes('경기도')) {
-      setDistance('약 71.7km');
-      setPrice('₩ 600,000');
-    } else if (address.includes('강원도')) {
-      setDistance('약 125km');
-      setPrice('₩ 700,000');
-    } else if (address.includes('충청북도')) {
-      setDistance('약 0.0km');
-      setPrice('₩ 500,000');
-    } else if (address.includes('충청남도')) {
-      setDistance('약 91.6km');
-      setPrice('₩ 600,000');
-    } else if (address.includes('전라북도')) {
-      setDistance('약 129km');
-      setPrice('₩ 700,000');
-    } else if (address.includes('전라남도')) {
-      setDistance('약 230km');
-      setPrice('₩ 900,000');
-    } else if (address.includes('경상북도')) {
-      setDistance('약 121km');
-      setPrice('₩ 700,000');
-    } else if (address.includes('경상남도')) {
-      setDistance('약 163km');
-      setPrice('₩ 800,000');
-    } else if (address.includes('제주도')) {
-      setDistance('약 395km');
-      setPrice('₩ 1,000,000');
+    const regions = [
+      { regex: /서울/, distance: '약 107km', price: '₩ 700,000' },
+      { regex: /경기도/, distance: '약 71.7km', price: '₩ 600,000' },
+      { regex: /강원도/, distance: '약 125km', price: '₩ 700,000' },
+      { regex: /충청북도/, distance: '약 0.0km', price: '₩ 500,000' },
+      { regex: /충청남도/, distance: '약 91.6km', price: '₩ 600,000' },
+      { regex: /전라북도/, distance: '약 129km', price: '₩ 700,000' },
+      { regex: /전라남도/, distance: '약 230km', price: '₩ 900,000' },
+      { regex: /경상북도/, distance: '약 121km', price: '₩ 700,000' },
+      { regex: /경상남도/, distance: '약 163km', price: '₩ 800,000' },
+      { regex: /제주도/, distance: '약 395km', price: '₩ 1,000,000' },
+    ];
+  
+    const match = regions.find((region) => region.regex.test(address));
+    if (match) {
+      setDistance(match.distance);
+      setPrice(match.price);
     } else {
       setDistance('약 0.0km');
       setPrice('₩ 500,000');
@@ -78,14 +66,22 @@ function Reservation() {
     setDaysInMonth(days);
   }, [selectedYear, selectedMonth]);
 
-  const handleEmailClick = () => {
-    const email = "ghtnakdmf123@gmail.com";
-    navigator.clipboard.writeText(email).then(() => {
-      alert("MUFI 이메일 주소를 복사했습니다.");
-    });
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "* 이름은 필수 항목입니다.";
+    if (!formData.event.trim()) newErrors.event = "* 행사명은 필수 항목입니다.";
+    if (!formData.phone1.trim() || !formData.phone2.trim() || !formData.phone3.trim()) {
+      newErrors.phone = "* 전화번호는 필수 항목입니다.";
+    }
+    if (!formData.address.trim()) newErrors.address = "* 행사 기본 주소는 필수 항목입니다.";
+    if (!formData.booths) newErrors.booths = "* 포토부스 개수를 반드시 선택해 주세요.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = () => {
+    if (!validateForm()) return;
+
     const formattedDate = `${selectedYear}-${String(selectedMonth).padStart(2, '0')}-${String(selectedDay).padStart(2, '0')}`;
     const requestBody = {
       Date: formattedDate,
@@ -121,7 +117,7 @@ function Reservation() {
                 style={{ cursor: 'pointer' }}
               />
               <MdOutlineEmail
-                onClick={handleEmailClick}
+                onClick={() => navigator.clipboard.writeText("ghtnakdmf123@gmail.com").then(() => alert("MUFI 이메일 주소를 복사했습니다."))}
                 style={{ cursor: 'pointer' }}
               />
             </S.QuickInquireIcons>
@@ -131,7 +127,7 @@ function Reservation() {
               value={selectedYear}
               onChange={(e) => setSelectedYear(Number(e.target.value))}
             >
-              {Array.from({ length: 7 }, (_, i) => 2024 + i).map((year) => (
+              {Array.from({ length: 7 }, (_, i) => new Date().getFullYear() + i).map((year) => (
                 <option key={year} value={year}>
                   {year}년
                 </option>
@@ -172,6 +168,7 @@ function Reservation() {
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
             />
+            {errors.name && <S.ErrorMessage>{errors.name}</S.ErrorMessage>}
             <input
               type="text"
               placeholder="행사명을 입력해주세요."
@@ -179,6 +176,7 @@ function Reservation() {
               value={formData.event}
               onChange={(e) => handleInputChange('event', e.target.value)}
             />
+            {errors.event && <S.ErrorMessage>{errors.event}</S.ErrorMessage>}
             <S.PhoneNumber>
               <input
                 type="text"
@@ -204,12 +202,14 @@ function Reservation() {
                 onChange={(e) => handleInputChange('phone3', e.target.value.replace(/\D/g, ''))}
               />
             </S.PhoneNumber>
+            {errors.phone && <S.ErrorMessage>{errors.phone}</S.ErrorMessage>}
             <input
               type="text"
               placeholder="행사 주소"
               value={formData.address}
               onChange={(e) => handleInputChange('address', e.target.value)}
             />
+            {errors.address && <S.ErrorMessage>{errors.address}</S.ErrorMessage>}
             <input
               type="text"
               placeholder="상세 주소"
@@ -227,6 +227,7 @@ function Reservation() {
                 handleInputChange('booths', value >= 1 ? value : ''); 
               }}
             />
+            {errors.booths && <S.ErrorMessage>{errors.booths}</S.ErrorMessage>}
             <label className="custom-file-upload">
               {formData.fileName || '프레임 PDF 파일이 있다면 업로드해주세요.'}
               <input

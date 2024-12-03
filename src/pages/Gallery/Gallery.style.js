@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { AiTwotoneLeftCircle, AiTwotoneRightCircle} from "react-icons/ai";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 export const GalleryWrapper = styled.div`
     ${({ theme }) => theme.fonts.b_55_60}
@@ -43,7 +42,7 @@ export const ArrowButton = styled.button`
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-    margin: 0 20rem;
+    margin: 0 10%;
     background-color: unset; 
     box-shadow: none; 
 
@@ -64,4 +63,25 @@ export const LeftIcon = styled(IoIosArrowBack)`
 export const RightIcon = styled(IoIosArrowForward)`
     color: #000000;
     font-size: 10rem;
+`;
+
+export const FullScreenOverlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+`;
+
+export const FullScreenImage = styled.img`
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    opacity: 1;
 `;

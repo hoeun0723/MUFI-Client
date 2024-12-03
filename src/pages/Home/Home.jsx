@@ -12,6 +12,14 @@ function Start() {
     const maxIndex = images.length;
 
     useEffect(() => {
+      // Initialize Kakao SDK
+      if (!window.Kakao.isInitialized()) {
+          window.Kakao.init('54228aecdc9c2f3347b322d0cb9620d0');
+          console.log('Kakao SDK Initialized:', window.Kakao.isInitialized());
+      }
+    }, []);
+
+    useEffect(() => {
         const interval = setInterval(() => {
             setFade(false);
             setTimeout(() => {
@@ -28,6 +36,16 @@ function Start() {
         return <S.CustomCircle key={index} isActive={isActive} />;
     });
 
+    const handleChatButtonClick = () => {
+      if (window.Kakao && window.Kakao.Channel) {
+          window.Kakao.Channel.chat({
+              channelPublicId: '_aeFEG',
+          });
+      } else {
+          console.error('Kakao SDK is not initialized or Kakao.Channel is unavailable.');
+      }
+    };
+
     return (
         <S.HomeWrapper>
             <S.HomeArticleWrapper>
@@ -37,7 +55,7 @@ function Start() {
                 />
                 <S.CustomSlideMenuWrapper>{circles}</S.CustomSlideMenuWrapper>
             </S.HomeArticleWrapper>
-            <S.ChatButton />
+            <S.ChatButton onClick={handleChatButtonClick}/>
         </S.HomeWrapper>
     );
 }
