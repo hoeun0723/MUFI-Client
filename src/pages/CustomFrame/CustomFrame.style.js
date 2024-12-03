@@ -37,15 +37,17 @@ export const Description = styled.div`
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
   font-family: "Pretendard Variable";
-  font-size: 1.4rem; 
+  font-size: 1.7rem; 
   font-style: normal;
-  font-weight: 400;
-  line-height: 4rem;
+  font-weight: 300;
+  line-height: 3.5rem;
   width: calc(100% - 9.6rem); /* 양쪽에 4.8rem씩 간격 */
 `;
 //가운데 박스
 export const CallToAction = styled.div`
-  margin-top: 50rem; /* 헤더 아래 적절한 간격 추가 */
+  width: 90rem;
+  height: 9rem;
+  margin-top: 55rem; /* 헤더 아래 적절한 간격 추가 */
   padding: 3rem 14rem;
   background-color: #ffecec; /* 버튼 배경색 */
   border-radius: 15rem; /* 둥근 모서리 설정 */
@@ -108,14 +110,14 @@ export const PreviewSection = styled.div`
   align-items: center;
   width: 31rem; 
   background-color: ${(props) => props.bgColor || 'white'};
-  padding: 2.5rem 10rem;
-  padding-bottom: 8rem; /* 프레임 하단에 여백 추가 */
+  padding: 3rem 10rem;
+  padding-bottom: 5rem; /* 프레임 하단에 여백 추가 */
   position: relative;
   overflow: hidden; /* 프레임을 벗어난 요소 숨기기 */
 `;
 
 export const FrameLayer = styled.div`
-  width: 25rem;
+  width: 26rem;
   height: 15rem;
   background-color: ${({ theme }) => theme.colors.black};
   margin: 0.5rem 0;
@@ -127,7 +129,7 @@ export const FrameLayer = styled.div`
 export const ColorSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
   align-items: center;
   width: 45%; /* 전체 너비 중 약 20% */
 `;
@@ -148,8 +150,8 @@ export const FrameThemeGroup = styled.div`
   width: 30%; /* 그룹 너비 */
 `;
 export const ColorOption = styled.div`
-  width: 6rem;
-  height: 6rem;
+  width: 6.5rem;
+  height: 6.5rem;
   border-radius: 50%;
   background-color: ${(props) => props.color || "white"};
   cursor: pointer;
@@ -170,9 +172,10 @@ export const ButtonGroup = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem; /* 버튼 간 간격 */
+  gap: 8rem; /* 버튼 간 간격 */
   margin-top: -1rem; /* 위 요소와 간격 */
-  width: 100%; /* 그룹 전체 너비 */
+  width: 130rem; /* 그룹 전체 너비 */
+  margin-bottom: 10rem;
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
@@ -180,10 +183,12 @@ export const ButtonWrapper = styled.div`
   gap: 2rem; /* 아이콘과 버튼 간 간격 */
 `;
 export const ButtonIcon = styled.img`
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 4rem;
+  height: 4rem;
 `;
 export const Button = styled.button`
+  height: 7rem;
+  width: 30rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,10 +198,10 @@ export const Button = styled.button`
   color: ${({ className }) =>
     className === 'download' ? '#e74c3c' : '#000'};
   font-family: "Pretendard Variable";
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 400;
   border: 2px solid ${({ theme }) => theme.colors.black};
-  border-radius: 1.5rem;
+  border-radius: 2.5rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
 

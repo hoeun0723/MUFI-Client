@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import ReservButton from '../../assets/svg/문의 버튼.svg';
-import DistLine from '../../assets/svg/DistLine.svg';
+import ReservButton from '../../assets/png/inqButton.png';
+import DistLine from '../../assets/png/DistLine.png';
 import { CiDeliveryTruck } from "react-icons/ci";
 import { AiOutlineUser } from "react-icons/ai";
 
@@ -97,7 +97,7 @@ export const FormContainer = styled.div`
   font-size: 3.5rem;
   font-weight: 700;
   margin-top: 4rem;
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -294,4 +294,12 @@ export const TermsAndCond = styled.p`
   align-items: center;
   color: ${({ theme }) => theme.colors.gray};
   border: 2px solid #2f16ff;
+`;
+
+export const ErrorMessage = styled.p`
+  text-align: left;
+  color: red;
+  margin-top: -1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
 `;
