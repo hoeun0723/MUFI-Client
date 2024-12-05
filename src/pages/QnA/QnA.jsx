@@ -7,6 +7,7 @@ import useGetQnaTitle from '../../hooks/queries/useGetQnaTitle';
 import usePostQnaContent from '../../hooks/queries/usePostQnaContent';
 import usePostQNAForm from '../../hooks/queries/usePostQNAForm';
 
+
 function QnA () {
     const [activeTab, setActiveTab] = useState("FAQ"); //usestate 이용
     const [isWriting, setIsWriting] = useState(false); //작성모드상태 추가
@@ -85,7 +86,22 @@ function QnA () {
     const handleBackToListClick = () => {
         setSelectedQnA(null); // 선택 해제
     };
+
+    const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
+    const totalPages = Math.ceil(qnaQuestions.length / 4); // 총 페이지 수 계산 (한 페이지에 5개의 질문)
+
+    const handlePageClick = (page) => {
+        if (page > 0 && page <= totalPages) {
+            setCurrentPage(page); // 유효한 페이지로만 이동
+        }
+    };
     
+    const questionsPerPage = 4; // 페이지당 표시할 질문 수
+    const currentPageData = qnaQuestions.slice(
+        (currentPage - 1) * questionsPerPage,
+        currentPage * questionsPerPage
+    );
+
     return (
         <S.QnAWrapper>
             {selectedFaq ? (
@@ -179,7 +195,7 @@ function QnA () {
                                 {faq.title}
                             </S.QuestionBox>
                         ))
-                        : qnaQuestions && qnaQuestions.map((qna) => (
+                        : currentPageData && currentPageData.map((qna) => (
                             <S.QuestionContainer key={qna.id}> {/* 수정된 부분: Q&A에서도 QuestionContainer 사용 */}
                                 <S.QuestionBox onClick={() => handleQuestionClick(qna)}>
                                     {qna.title}
@@ -197,8 +213,13 @@ function QnA () {
             {/* Q&A 탭일 때만 페이지네이션을 표시 */}
             {activeTab === "Q&A" && (
                 <S.PaginationWrapper>
-                    <S.PageDot />
-                    <S.PageDot />
+                    {Array.from({ length: totalPages }, (_, index) => (
+                    <S.PageDot
+                        key={index}
+                        onClick={() => handlePageClick(index + 1)}
+                        active={currentPage === index + 1} // 현재 페이지 강조
+                    />
+                ))}
                 </S.PaginationWrapper>
             )}
             </>
@@ -208,4 +229,4 @@ function QnA () {
 }
 
 
-export default QnA;
+export default QnA; 

@@ -110,8 +110,8 @@ export const PreviewSection = styled.div`
   align-items: center;
   width: 31rem; 
   background-color: ${(props) => props.bgColor || 'white'};
-  padding: 3rem 10rem;
-  padding-bottom: 5rem; /* 프레임 하단에 여백 추가 */
+  padding: 2.5rem 10rem;
+  padding-bottom: 8rem; /* 프레임 하단에 여백 추가 */
   position: relative;
   overflow: hidden; /* 프레임을 벗어난 요소 숨기기 */
 `;

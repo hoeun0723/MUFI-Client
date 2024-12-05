@@ -287,10 +287,15 @@ export const PaginationWrapper = styled.div`
 `;
 
 export const PageDot = styled.div`
-  width: 1rem;
-  height: 1rem;
-  background-color: ${({ active }) => (active ? "#d53f8c" : "#888")};
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
+  background-color: ${(props) => (props.active ? "#49BEBA" : "#ccc")};
+  margin: 0 5px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #49BEBA;
+  }
 `;
 
