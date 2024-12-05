@@ -1,15 +1,18 @@
 import * as S from './CustomFrame.style';
 import AvatarImage from '../../assets/svg/image3.svg';
-import React, { useState } from 'react';  //컬러 버튼을 누르기 위한 기능
+import React, { useState, useRef } from 'react';  //컬러 버튼을 누르기 위한 기능
 import Draggable from 'react-draggable'; //아바타 드래그 이동
 import UploadIcon from '../../assets/svg/FaFileUpload.svg';
 import DownloadIcon from '../../assets/svg/FaDownload.svg';
+import html2canvas from "html2canvas";
+import { saveAs } from "file-saver";
 
 function CustomFrame () {
     const [avatars, setAvatars] = useState([]); // 프레임에 추가된 아바타들
     // 상태 추가: 선택된 색상
     const [frameColor, setFrameColor] = useState('#ffffff'); // 초기값은 흰색
-    
+    const frameRef = useRef(null); // 캡처 대상
+    const fileInputRef = useRef(null); // 파일 업로드 인풋 참조
 
     // 아바타 클릭 시 추가
     const handleAvatarClick = (src, x, y) => {
@@ -33,6 +36,34 @@ function CustomFrame () {
     const handleColorChange = (color) => {
         setFrameColor(color);
     };
+
+    // 사용자 이미지 업로드 핸들러
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                handleAvatarClick(e.target.result, 0, 0); // 업로드한 이미지 추가
+            };
+            reader.readAsDataURL(file); // 이미지 미리보기
+        }
+    };
+
+    //프레임 캡처 및 다운로드
+    const handleDownload = async () => {
+        if (!frameRef.current) return;
+    
+        try {
+          const canvas = await html2canvas(frameRef.current, { scale: 2 });
+          canvas.toBlob((blob) => {
+            if (blob !== null) {
+              saveAs(blob, "custom-frame.png");
+            }
+          });
+        } catch (error) {
+          console.error("Error converting frame to image:", error);
+        }
+      };
 
     return (
         <S.CustomFrameWrapper>
@@ -70,12 +101,11 @@ function CustomFrame () {
                 </S.AvatarSection>
 
                 {/* 가운데 섹션 */}
-                <S.PreviewSection bgColor={frameColor}>
+                <S.PreviewSection ref={frameRef} bgColor={frameColor}>
                   {avatars.map((avatar) => (
                     <Draggable
                         key={avatar.id}
                         defaultPosition={{ x: avatar.x, y: avatar.y}}
-                        
                         onStop={(e, data) => handleStop(avatar.id, data)}
                     >
                         <S.DraggableAvatar src={avatar.src} alt="draggable-avatar" />
@@ -111,17 +141,28 @@ function CustomFrame () {
             </S.FrameEditorWrapper>
             <S.ButtonGroup>
                 <S.ButtonWrapper>
-                  <S.ButtonIcon src={UploadIcon} alt="FaFileUpload" />
-                  <S.Button className="upload">내 아바타 사용 (png 권장)</S.Button>
+                  {/* 업로드 버튼을 이미지로 변경 */}
+                  <S.ButtonIcon
+                        as="img"
+                        src={UploadIcon}
+                        alt="Upload Avatar"
+                        onClick={() => fileInputRef.current.click()}
+                    />
+                    <input
+                        type="file"
+                        accept="image/*"
+                        ref={fileInputRef}
+                        style={{ display: 'none' }}
+                        onChange={handleFileChange}
+                    />
                 </S.ButtonWrapper>
 
                 <S.ButtonWrapper>
                   <S.ButtonIcon src={DownloadIcon}alt="FaDownload" />
-                  <S.Button className="download">완성! PDF 다운로드</S.Button>
+                  <S.Button onClick={handleDownload}>완성! PDF 다운로드</S.Button>
                 </S.ButtonWrapper>
             </S.ButtonGroup>
         </S.CustomFrameWrapper>
     )
 }
-
 export default CustomFrame;
