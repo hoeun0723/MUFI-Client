@@ -4,6 +4,7 @@ import { RiKakaoTalkFill } from "react-icons/ri";
 import { MdOutlineEmail } from "react-icons/md";
 import { BsDashLg } from "react-icons/bs";
 import usePostReservForm from '../../hooks/queries/usePostReservForm';
+import CalendarComponent from '../../components/GoogleCalendar/GoogleCalendar';
 
 function Reservation() {
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
@@ -106,7 +107,7 @@ function Reservation() {
   return (
     <S.ReservationWrapper>
       <S.ReservContainerTop>
-        <S.SharedCalendar />
+        <S.SharedCalendar><CalendarComponent/></S.SharedCalendar>
         <S.TopHalf>
           <S.InfoMessage>견적은 행사 위치 및 이동 거리에 따라 달라질 수 있습니다.</S.InfoMessage>
           <S.QuickInquire>
