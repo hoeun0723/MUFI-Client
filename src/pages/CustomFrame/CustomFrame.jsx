@@ -73,7 +73,7 @@ function CustomFrame () {
                 <br />
                 직접 디자인해볼 수 있는 서비스입니다.
                 <br />
-                디자인을 완성하면, PDF로 다운받아 예약시 활용해보세요!
+                디자인을 완성하면, PNG로 다운받아 예약시 활용해보세요!
             </S.Description>
             <S.CallToAction>
                 무피냥이와 함께 나만의 프레임을 만들어봐요!
@@ -146,7 +146,6 @@ function CustomFrame () {
                         as="img"
                         src={UploadIcon}
                         alt="Upload Avatar"
-                        onClick={() => fileInputRef.current.click()}
                     />
                     <input
                         type="file"
@@ -155,11 +154,12 @@ function CustomFrame () {
                         style={{ display: 'none' }}
                         onChange={handleFileChange}
                     />
+                    <S.Button onClick={() => fileInputRef.current.click()}>내 아바타 사용 (png 권장)</S.Button>
                 </S.ButtonWrapper>
 
                 <S.ButtonWrapper>
                   <S.ButtonIcon src={DownloadIcon}alt="FaDownload" />
-                  <S.Button onClick={handleDownload}>완성! PDF 다운로드</S.Button>
+                  <S.Button onClick={handleDownload}>완성! PNG 다운로드</S.Button>
                 </S.ButtonWrapper>
             </S.ButtonGroup>
         </S.CustomFrameWrapper>

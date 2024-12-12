@@ -199,7 +199,7 @@ export const Button = styled.button`
     className === 'download' ? '#e74c3c' : '#000'};
   font-family: "Pretendard Variable";
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 700;
   border: 2px solid ${({ theme }) => theme.colors.black};
   border-radius: 2.5rem;
   cursor: pointer;

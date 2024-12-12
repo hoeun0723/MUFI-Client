@@ -13,6 +13,16 @@ export const ReservationWrapper = styled.div`
   align-items: center;
   gap: 2rem;
   margin-top: 5rem;
+
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
 `;
 
 export const ReservContainerTop = styled.div`
@@ -20,12 +30,33 @@ export const ReservContainerTop = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+  }
+
+  @media (max-width: 480px) {
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 export const SharedCalendar = styled.div`
   width: 50rem;
   height: 50rem;
   border: 2px solid none;
+
+  @media (max-width: 768px) {
+    width: 40rem;
+    height: 40rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 30rem;
+    height: 30rem;
+  }
 `;
 
 export const TopHalf = styled.div`
@@ -39,6 +70,15 @@ export const InfoMessage = styled.p`
   color: #000000;
   opacity: 0.5;
   margin-bottom: 4rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+    font-size: 1.6rem;
+  }
 `;
 
 export const QuickInquire = styled.div`
@@ -49,6 +89,17 @@ export const QuickInquire = styled.div`
   color: #000000;
   gap: 8rem;
   margin-bottom: 11rem;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    gap: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    gap: 3rem;
+    margin-bottom: 8rem;
+  }
 `;
 
 export const QuickInquireIcons = styled.div`
@@ -59,6 +110,16 @@ export const QuickInquireIcons = styled.div`
   svg {
     width: 6rem;
     height: 6rem;
+
+    @media (max-width: 768px) {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    @media (max-width: 480px) {
+      width: 4rem;
+      height: 4rem;
+    }
   }
 `;
 
@@ -75,6 +136,18 @@ export const SelectDate = styled.div`
     border-radius: 0;
     border: 1.4px solid #000000;
     text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+      width: 12rem;
+      height: 3.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+      width: 10rem;
+      height: 3rem;
+    }
   }
 `;
 
@@ -82,6 +155,14 @@ export const InfoMessageDate = styled.p`
   font-size: 1.4rem;
   color: ${({ theme }) => theme.colors.dark_red};
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 export const ReservContainerMiddle = styled.div`
@@ -90,6 +171,15 @@ export const ReservContainerMiddle = styled.div`
   justify-content: space-between;
   gap: 2rem;
   margin-bottom: 0rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -101,6 +191,15 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
 `;
 
 export const ReservationForm = styled.form`
@@ -117,9 +216,20 @@ export const ReservationForm = styled.form`
     border: 1px solid #000000;
     background-color: #ffffff;
     color: #000000;
+
     ::placeholder {
       color: #000000;
       opacity: 0.5;
+    }
+
+    @media (max-width: 768px) {
+      width: 48rem;
+      height: 5rem;
+    }
+
+    @media (max-width: 480px) {
+      width: 38rem;
+      height: 4rem;
     }
   }
 
@@ -142,6 +252,16 @@ export const ReservationForm = styled.form`
     border: 1px solid #000000;
     border-radius: 999px;
     text-align: center;
+
+    @media (max-width: 768px) {
+      width: 48rem;
+      height: 5rem;
+    }
+
+    @media (max-width: 480px) {
+      width: 38rem;
+      height: 4rem;
+    }
   }
 `;
 
@@ -157,11 +277,29 @@ export const PhoneNumber = styled.div`
     width: 2rem;
     height: 2rem;
     color: #000000;
+
+    @media (max-width: 768px) {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
+    @media (max-width: 480px) {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
   }
 
   input {
     width: 16rem;
     text-align: center;
+
+    @media (max-width: 768px) {
+      width: 14rem;
+    }
+
+    @media (max-width: 480px) {
+      width: 12rem;
+    }
   }
 `;
 
@@ -175,6 +313,15 @@ export const CheckContainer = styled.div`
   flex-direction: column;
   strong {
     font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
   }
 `;
 
@@ -200,6 +347,16 @@ export const DistanceCheck = styled.div`
   font-weight: 400;
   font-size: 3rem;
   color: ${({ theme }) => theme.colors.dark_red};
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
 `;
 
 export const DistanceContainer = styled.div`
@@ -207,12 +364,30 @@ export const DistanceContainer = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 37rem;
+
+  @media (max-width: 768px) {
+    gap: 25rem;
+  }
+
+  @media (max-width: 480px) {
+    gap: 15rem;
+  }
 `
 
 export const StyledDeliveryTruck = styled(CiDeliveryTruck)`
   width: 6rem;
   height: 6rem;
   color: ${({ theme }) => theme.colors.dark_red};
+
+  @media (max-width: 768px) {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 4rem;
+    height: 4rem;
+  }
 `;
 
 export const StyledLine = styled.div`
@@ -222,12 +397,32 @@ export const StyledLine = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media (max-width: 768px) {
+    width: 35rem;
+    height: 4rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 25rem;
+    height: 3rem;
+  }
 `
 
 export const StyledUserIcon = styled(AiOutlineUser)`
   width: 6rem;
   height: 6rem;
   color: ${({ theme }) => theme.colors.dark_red};
+
+  @media (max-width: 768px) {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 4rem;
+    height: 4rem;
+  }
 `;
 
 export const EstimateCheck = styled.div`

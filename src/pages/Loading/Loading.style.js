@@ -19,4 +19,5 @@ export const Text = styled.div`
 
 export const LottieWrapper = styled.div`
   width: 50%;
+  height: 100%;
 `
