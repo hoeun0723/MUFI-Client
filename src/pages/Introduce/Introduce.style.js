@@ -24,6 +24,16 @@ export const BackgroundText = styled.div`
   letter-spacing: -14.1px;
   opacity: 1; /* opacity를 제거하여 진하게 표시 */
   z-index: -1; /* 배경처럼 보이도록 뒤로 배치 */
+
+  @media (max-width: 768px) {
+    font-size: 25rem;
+    top: -5%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 18rem;
+    top: -8%;
+  }
 `;
 //소개글1//
 export const DescriptionText = styled.div`
@@ -39,6 +49,16 @@ export const DescriptionText = styled.div`
   font-weight: 300;
   line-height: normal;
   width: calc(100% - 9.6rem); /* 양쪽에 4.8rem씩 간격 */
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+    top: 40%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    top: 20%;
+  }
 `;
 //로고 소개 BRAND LOGO
 export const LogoSection = styled.div`
@@ -47,6 +67,16 @@ export const LogoSection = styled.div`
   padding-left: 9rem; /* 왼쪽에 간격 추가 */
   position: relative;
   width: 100%;
+
+  @media (max-width: 768px) {
+    padding-top: 30rem;
+    padding-left: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 20rem;
+    padding-left: 2rem;
+  }
 `;
 
 export const LogoTitle = styled.div`
@@ -55,6 +85,14 @@ export const LogoTitle = styled.div`
   font-size: 6.4rem;
   font-weight: 800;
   line-height: normal;
+
+  @media (max-width: 768px) {
+    font-size: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 3rem;
+  }
 `;
 
 export const LogoSubtitle = styled.div`
@@ -64,6 +102,14 @@ export const LogoSubtitle = styled.div`
   font-weight: 400;
   line-height: normal;
   margin-top: 0.5rem; /* 상단 텍스트와의 간격 */
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
 `;
 //로고 이미지
 export const LogoContainer = styled.div`
@@ -73,6 +119,14 @@ export const LogoContainer = styled.div`
   width: 100%;
   margin-top: 2rem; /* 위아래 간격 조정 */
   gap: 15rem;
+
+  @media (max-width: 768px) {
+    gap: 10rem;
+  }
+
+  @media (max-width: 480px) {
+    gap: 5rem;
+  }
 `;
 
 export const LogoImage = styled.img`
@@ -81,14 +135,30 @@ export const LogoImage = styled.img`
   &:nth-child(2) {
     background-color: ${({ theme }) => theme.colors.black};; /* 원하는 배경색 코드로 변경 */
     padding: 1rem; /* 배경색과 이미지 사이 간격 */
+
+  }
+  
+  @media (max-width: 768px) {
+    width: 35rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 10rem;
+  }
 `;
 //회사 연혁
 export const TimelineSection = styled.div`
   text-align: left;
   padding-top: 5%; /* LogoSection과의 간격을 조정 */
   padding-left: 9rem;
-  z-index: 1; /* 이 값을 추가해 보세요 */
-  position: relative; /* z-index를 동작시키기 위해 필요 */
+
+  @media (max-width: 768px) {
+    padding-left: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    padding-left: 2rem;
+  }
 `;
 export const TimelineTitle = styled.div`
   color: ${({ theme }) => theme.colors.black};
@@ -96,6 +166,14 @@ export const TimelineTitle = styled.div`
   font-size: 6.4rem;
   font-weight: 800;
   line-height: normal;
+
+  @media (max-width: 768px) {
+    font-size: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 3rem;
+  }
 `;
 export const TimelineSubtitle = styled.div`
   color: ${({ theme }) => theme.colors.gray};
@@ -104,12 +182,30 @@ export const TimelineSubtitle = styled.div`
   font-weight: 400;
   line-height: normal;
   margin-top: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+  }
 `;
 export const HistoryImage = styled.img`
   display: block;
   margin: 7rem auto; /* 이미지 중앙 정렬 및 위아래 간격 */
   max-width: 95%; /* 이미지 최대 너비 */
   height: auto; /* 비율 유지 */
+
+  @media (max-width: 768px) {
+    max-width: 80%;
+    margin: 5rem auto;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+    margin: 3rem auto;
+  }
 `;
 //포트폴리오
 export const PortfolioSection = styled.div`
@@ -119,6 +215,16 @@ export const PortfolioSection = styled.div`
   width: 100%;
   height: 100%;
   margin-bottom: 10rem;
+
+  @media (max-width: 768px) {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
 `;
 
 export const PortfolioTitle = styled.div`
@@ -128,6 +234,16 @@ export const PortfolioTitle = styled.div`
   font-weight: 800;
   line-height: normal;
   margin-left: 9rem;
+
+  @media (max-width: 768px) {
+    font-size: 5rem;
+    margin-left: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 3rem;
+    margin-left: 2rem;
+  }
 `;
 export const PortfolioSubtitle = styled.div`
   color: ${({ theme }) => theme.colors.gray};
@@ -137,12 +253,36 @@ export const PortfolioSubtitle = styled.div`
   line-height: normal;
   margin-top: 0.5rem;
   margin-left: 9rem;
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    margin-left: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+    margin-left: 2rem;
+  }
 `;
 export const PortfolioImage = styled.img`
   display: block;
   margin: 6.9rem 0;
   height: auto; /* 비율 유지 */
   margin-left: 8rem;
+
+  @media (max-width: 768px) {
+    max-width: 80%;
+    margin: 5rem 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 70%;
+    margin: 3rem 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 //대학교,고등학교
 export const InfoBox = styled.div`
@@ -157,7 +297,16 @@ export const InfoBox = styled.div`
   border-radius: 4rem; /* 둥근 모서리 */
   background-color: ${({ theme }) => theme.colors.white}; /* 배경색 */
   position: relative; /* z-index가 동작하도록 설정 */
-  z-index: 1; /* 다른 요소보다 위에 표시 */
+
+  @media (max-width: 768px) {
+    padding: 4rem;
+    margin: 7rem auto;
+  }
+
+  @media (max-width: 480px) {
+    padding: 3rem;
+    margin: 5rem auto;
+  }
 `;
 
 export const InfoText = styled.p`
@@ -169,6 +318,14 @@ export const InfoText = styled.p`
   text-align: center; /* 중앙 정렬 */
   margin: 0.5rem 0; /* 각 문단 간격 */
 
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+
 `;
 
 export const InfoTitle = styled.span`
@@ -176,6 +333,14 @@ export const InfoTitle = styled.span`
   color: ${({ theme }) => theme.colors.black};
   display: block; /* 제목과 내용이 줄바꿈 되도록 설정 */
   margin-bottom: 1rem; /* 제목과 내용 사이 간격 */
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 `;
 
 

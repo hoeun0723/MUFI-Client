@@ -119,15 +119,12 @@ function QnA () {
                 <S.QnADetailWrapper>
                     <S.QnADetailTitle>{selectedQnA.title}</S.QnADetailTitle>
                     <S.DividerLine />
-                    <S.QnADetailContent>
-                        {isAnswered
-                        ? <>{selectedQnA.content}</>
-                        : "답변이 준비 중입니다. 조금만 기다려 주세요!"}
+                    <S.QnADetailContent>{selectedQnA.content}
                     </S.QnADetailContent>
                 </S.QnADetailWrapper>
 
                         {/* 답변 완료 상태일 때만 렌더링 */}
-                        {isAnswered && (
+                        {isAnswered ? (
                         <>
                           <S.AnswerWrapper>
                             <S.LogoImage src={ChatbotLogo} alt="챗봇 로고" />
@@ -137,7 +134,14 @@ function QnA () {
                             </S.AnsweredBox>
                           </S.AnswerWrapper>
                         </>
-                    )}
+                    )
+                    : 
+                    <>
+                          <S.AnswerWrapper>
+                            <S.LogoImage src={ChatbotLogo} alt="챗봇 로고" />
+                            <S.AnsweredBox>답변이 준비 중입니다. 조금만 기다려 주세요!</S.AnsweredBox>
+                          </S.AnswerWrapper>
+                        </>}
             </>
         ) : (
             // FAQ 목록 화면

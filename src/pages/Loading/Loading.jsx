@@ -9,8 +9,7 @@ const Loading = () => {
         <Lottie 
           animationData = {loadingLottie}
         />
-      </S.LottieWrapper>
-s
+        </S.LottieWrapper>
     </S.LoadingWrapper>
   );
 }

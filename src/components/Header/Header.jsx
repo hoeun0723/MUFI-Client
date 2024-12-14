@@ -10,16 +10,27 @@ function Header() {
     const [userName, setUserName] = useState(localStorage.getItem('USER_NAME'));
 
     useEffect(() => {
-        const handleStorageChange = () => {
-            setUserName(localStorage.getItem('USER_NAME'));
-        };
-
-        window.addEventListener('storage', handleStorageChange);
-
-        return () => {
-            window.removeEventListener('storage', handleStorageChange);
-        };
-    }, []);
+      const handleStorageChange = () => {
+          setUserName(localStorage.getItem('USER_NAME'));
+      };
+  
+      window.addEventListener('storage', handleStorageChange);
+  
+      // 같은 탭에서 값이 변경될 때에도 감지
+      const originalSetItem = localStorage.setItem;
+      localStorage.setItem = function (key, value) {
+          originalSetItem.apply(this, [key, value]);
+          if (key === 'USER_NAME') {
+              handleStorageChange(); // 상태 업데이트
+          }
+      };
+  
+      return () => {
+          window.removeEventListener('storage', handleStorageChange);
+          localStorage.setItem = originalSetItem; // 기존 동작 복원
+      };
+  }, []);
+  
 
   const handleClick = (link) => {
     setActiveLink(link);
