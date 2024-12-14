@@ -6,22 +6,22 @@ import "./CalendarStyles.css";
 const CalendarComponent = () => {
   const [events, setEvents] = useState([
     {
-      title: "Meeting with team",
+      title: "항공대 행사",
       start: "2024-12-05",
       end: "2024-12-05",
     },
     {
-      title: "Project deadline",
+      title: "팝업 행사",
       start: "2024-12-10",
       end: "2024-12-10",
     },
     {
-      title: "Team outing",
+      title: "휴무",
       start: "2024-12-15",
       end: "2024-12-15",
     },
     {
-      title: "Holiday",
+      title: "고양시 행사",
       start: "2024-12-25",
       end: "2024-12-25",
     },

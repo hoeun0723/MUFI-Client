@@ -49,6 +49,7 @@ export const InfoText = styled.p`
 export const Developers = styled.div`
 display: flex;
 width: 80%;
+cursor: pointer;
   margin-bottom: 4rem;
   position: relative;
   top: 15rem;

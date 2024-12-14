@@ -1,8 +1,11 @@
 import * as S from './Footer.style';
 import MufiLogo from '../../assets/png/MufiLogoWhite.png';
 import { IcInsta, IcKakao } from '../../assets/svg';
+import { useNavigate } from 'react-router-dom';
 
 function Footer () {
+
+  const navigate = useNavigate();
 
     return (
         <S.FooterWrapper>
@@ -33,7 +36,7 @@ function Footer () {
             
             
             <div>
-                <S.Developers>Developers</S.Developers>
+                <S.Developers onClick={()=>navigate('/admin')}>Developers</S.Developers>
                 <S.DeveloperInfo>
                 <div>양재원</div>
                 <span>yjw5970@naver.com</span>
