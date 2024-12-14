@@ -513,6 +513,76 @@ export const QnADetailContent = styled.p`
   }
 `;
 
+//qna버튼부분
+export const QnADetailWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 130rem;
+  height: ${({ isAnswered }) => (isAnswered ? "auto" : "40rem")}; /* 답변 대기 시 높이 조정 */
+  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: 5rem;
+  padding: 5rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
+  margin-bottom: 20rem;
+  margin-top: 10rem;
+`;
+
+export const AnswerWrapper = styled.div`
+  display: flex;
+  align-items: center; /* 세로축 중앙 정렬 */
+  justify-content: space-between; /* 가로축 왼쪽 정렬 */
+  width: 100%;
+  max-width: 130rem;
+  border-radius: 5rem; 
+  padding: 2rem; /* 내부 여백 */
+  gap: 3rem; /* 로고와 텍스트 박스 사이 간격 */
+  margin-top: -17rem; /* 위 요소와 간격 */
+  margin-bottom: 10rem;
+`;
+
+export const AnsweredBox = styled.div`
+  flex-direction: column;
+  padding: 10rem; //검정박스 위아래 조정
+  background-color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
+  border-radius: 5rem;
+  width: 100%;
+  max-width: 110rem;
+  text-align: left;
+  font-family: "Pretendard Variable";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+export const LogoImage = styled.img`
+  flex-direction: column;
+  width: 20rem; /* 로고 크기 */
+  height: 20rem;
+  object-fit: cover; /* 이미지를 박스에 맞게 조정 */
+  border-radius: 50%; /* 원형으로 표시 */
+  flex-shrink: 0; /* 로고 크기 고정 */
+`;
+
+//흰색박스 글자 폰트
+export const QnADetailTitle = styled.h2`
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+`;
+
+export const QnADetailContent = styled.p`
+  font-size: 2.4rem;
+  line-height: 2rem;
+  color: ${({ theme }) => theme.colors.dark_grey};
+  margin-top:5rem;
+  margin-bottom: -10rem;
+`;
+
 //아래 페이지 네이션
 export const PaginationWrapper = styled.div`
   display: flex;
