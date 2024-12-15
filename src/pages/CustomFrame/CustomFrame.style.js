@@ -108,7 +108,7 @@ export const PreviewSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30rem; 
+  width: 31rem; 
   background-color: ${(props) => props.bgColor || 'white'};
   padding: 3rem 10rem;
   padding-bottom: 5rem; /* 프레임 하단에 여백 추가 */

@@ -240,4 +240,4 @@ function QnA () {
 }
 
 
-export default QnA; 
+export default QnA;
