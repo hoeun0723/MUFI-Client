@@ -38,9 +38,7 @@ export const BackgroundText = styled.div`
 //소개글1//
 export const DescriptionText = styled.div`
   position: absolute;
-  top: 55%; /* BackgroundText 아래 적절한 위치 조정 */
-  left: 50%;
-  transform: translateX(-50%);
+  top: 50rem; /* BackgroundText 아래 적절한 위치 조정 */
   color: ${({ theme }) => theme.colors.gray};
   text-align: center;
   font-family: "Pretendard Variable";
@@ -267,8 +265,8 @@ export const PortfolioSubtitle = styled.div`
 export const PortfolioImage = styled.img`
   display: block;
   margin: 6.9rem 0;
-  height: auto; /* 비율 유지 */
-  margin-left: 8rem;
+  margin-left: 4%;
+  max-width: 90%;
 
   @media (max-width: 768px) {
     max-width: 80%;

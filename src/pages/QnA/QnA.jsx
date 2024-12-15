@@ -1,5 +1,5 @@
 import * as S from './QnA.style';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ChatbotLogo from '../../assets/svg/챗봇로고.svg';
 import useGetFaqTitle from '../../hooks/queries/useGetFaqTitle';
 import usePostFaqContent from '../../hooks/queries/usePostFaqContent';
@@ -102,11 +102,18 @@ function QnA () {
         currentPage * questionsPerPage
     );
 
+    useEffect(() => {
+      if (selectedFaq || selectedQnA) {
+          window.scrollTo({ top: 150 });
+      }
+    }, [selectedFaq, selectedQnA]);
+  
+
     return (
         <S.QnAWrapper>
             {selectedFaq ? (
             <>
-            <S.BackButton onClick={handleBackClick}>← BACK</S.BackButton>
+            <S.BackButton onClick={handleBackClick}>◀︎ BACK</S.BackButton>
             <S.FaqDetailWrapper>
                 <S.FaqDetailTitle>{selectedFaq.title}</S.FaqDetailTitle>
                 <S.DividerLine />
@@ -115,7 +122,7 @@ function QnA () {
             </>
         ) : selectedQnA ? ( // **Q&A 상세 화면 추가**
             <>  
-                <S.BackButton onClick={handleBackToListClick}>← BACK</S.BackButton>
+                <S.BackButton onClick={handleBackToListClick}>◀︎ BACK</S.BackButton>
                 <S.QnADetailWrapper>
                     <S.QnADetailTitle>{selectedQnA.title}</S.QnADetailTitle>
                     <S.DividerLine />
@@ -139,7 +146,7 @@ function QnA () {
                     <>
                           <S.AnswerWrapper>
                             <S.LogoImage src={ChatbotLogo} alt="챗봇 로고" />
-                            <S.AnsweredBox>답변이 준비 중입니다. 조금만 기다려 주세요!</S.AnsweredBox>
+                            <S.AnsweredBox>문의해주셔서 감사합니다. 답변 준비중입니다.</S.AnsweredBox>
                           </S.AnswerWrapper>
                         </>}
             </>
@@ -178,18 +185,18 @@ function QnA () {
                     <>
                     <S.Input
                         name="title"
-                        placeholder="제목을 입력하세요."
+                        placeholder="질문의 제목을 입력해주세요."
                         value={formData.title}
                         onChange={handleInputChange}
                     />
                     <S.TextArea
                         name="content"
-                        placeholder="내용을 입력하세요."
+                        placeholder="질문의 내용을 입력해주세요."
                         value={formData.content}
                         onChange={handleInputChange}
                     />
                     <S.SaveButton onClick={handleSave} disabled={isLoading}>
-                        {isLoading ? "등록 중..." : "등록"}
+                        {isLoading ? "등록중..." : "등록"}
                     </S.SaveButton>
                 </>
                 ) : (
@@ -204,7 +211,7 @@ function QnA () {
                                 <S.QuestionBox onClick={() => handleQuestionClick(qna)}>
                                     {qna.title}
                                 </S.QuestionBox>
-                                <S.AnswerStatus >
+                                <S.AnswerStatus style={{ color: qna.answerDone ? '#EA4343' : '#000000' }}>
                                     <S.StatusIcon answered={qna.answerDone} />
                                     {qna.answerDone ? "답변 완료" : "답변 대기"}
                                 </S.AnswerStatus>
@@ -215,7 +222,7 @@ function QnA () {
             
             
             {/* Q&A 탭일 때만 페이지네이션을 표시 */}
-            {activeTab === "Q&A" && (
+            {activeTab === "Q&A" && !isWriting && (
                 <S.PaginationWrapper>
                     {Array.from({ length: totalPages }, (_, index) => (
                     <S.PageDot
@@ -233,4 +240,4 @@ function QnA () {
 }
 
 
-export default QnA; 
+export default QnA;
