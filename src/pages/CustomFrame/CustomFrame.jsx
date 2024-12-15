@@ -121,21 +121,21 @@ function CustomFrame () {
                 <S.ColorSection>
                     <S.ThemeLabel>프레임 색상</S.ThemeLabel>
                     <S.FrameColorGroup>
+                        <S.ColorOption color="#D52727" onClick={() => handleColorChange('#D52727')} />
+                        <S.ColorOption color="#EB1D8E" onClick={() => handleColorChange('#EB1D8E')} />
+                        <S.ColorOption color="#C157EB" onClick={() => handleColorChange('#C157EB')} />
+                        <S.ColorOption color="#1875EE" onClick={() => handleColorChange('#1875EE')} />
+                        <S.ColorOption color="#F8871D" onClick={() => handleColorChange('#F8871D')} />
                         <S.ColorOption color="#49BEBA" onClick={() => handleColorChange('#49BEBA')} />
-                        <S.ColorOption color="blue" onClick={() => handleColorChange('blue')} />
-                        <S.ColorOption color="yellow" onClick={() => handleColorChange('yellow')} />
-                        <S.ColorOption color="green" onClick={() => handleColorChange('green')} />
-                        <S.ColorOption color="pink" onClick={() => handleColorChange('pink')} />
-                        <S.ColorOption color="purple" onClick={() => handleColorChange('purple')} />
-                        <S.ColorOption color="orange" onClick={() => handleColorChange('orange')} />
-                        <S.ColorOption color="gray" onClick={() => handleColorChange('gray')} />
+                        <S.ColorOption color="#795947" onClick={() => handleColorChange('#795947')} />
+                        <S.ColorOption color="#34A43D" onClick={() => handleColorChange('#34A43D')} />
                     </S.FrameColorGroup>
                     <S.ThemeLabel>프레임 테마</S.ThemeLabel>
                     <S.FrameThemeGroup>
-                        <S.ColorOption color="white" onClick={() => handleColorChange('white')} />
-                        <S.ColorOption color="black" onClick={() => handleColorChange('black')} />
-                        <S.ColorOption color="lightgray" onClick={() => handleColorChange('lightgray')} />
-                        <S.ColorOption color="darkgray" onClick={() => handleColorChange('darkgray')} />
+                        <S.ColorOption color="#2E2E2E" onClick={() => handleColorChange('#2E2E2E')} />
+                        <S.ColorOption color="#616161" onClick={() => handleColorChange('#616161')} />
+                        <S.ColorOption color="#FFFFFF" onClick={() => handleColorChange('#FFFFFF')} />
+                        <S.ColorOption color="#EA4343" onClick={() => handleColorChange('#EA4343')} />
                     </S.FrameThemeGroup>
                 </S.ColorSection>
             </S.FrameEditorWrapper>

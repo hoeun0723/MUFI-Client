@@ -24,8 +24,8 @@ export const HeaderWrapper = styled.header`
 
 export const Logo = styled.div`
 display: flex;
-position: relative;
-left:-10%;
+position: sticky;
+right: 44.5%;
 
 img {
     height: auto;
@@ -93,6 +93,8 @@ gap: 1.4rem;
 height: 4.4rem;
 ${({ theme }) => theme.fonts.b_20};
 color: ${({ theme }) => theme.colors.gray};
+font-weight: 600;
+cursor: pointer;
 
 @media (max-width: 768px) {
     gap: 1rem;

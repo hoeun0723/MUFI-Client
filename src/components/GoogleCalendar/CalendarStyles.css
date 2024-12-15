@@ -1,37 +1,113 @@
+/* 전체 컨테이너 스타일 */
 .calendar-container {
-    width: 100%; /* 원하는 너비 비율로 설정 */
-    height: 240rem; /* 원하는 높이 설정 */
-    margin: 0 auto; /* 가운데 정렬 */
-  }
-  
-  .fc {
-    font-size: 3rem; /* 폰트 크기를 조정 */
-  }
+  width: 100%; /* 원하는 너비 비율로 설정 */
+  height: 200rem; /* 원하는 높이 설정 */
+  margin: 0 auto; /* 가운데 정렬 */
+  background-color: #ffffff; /* 배경색 */
+  border: 2px solid #000000; /* 외곽선 */
+  color: #000000; /* 기본 텍스트 색상 */
+  font-family: pretendard;
+}
 
-  .fc.fc-toolbar-title {
-    font-size: 1rem;
-  }
+/* FullCalendar 기본 폰트와 레이아웃 */
+.fc {
+  font-size: 2rem; /* 폰트 크기를 조정 */
+  font-family: pretendard;
+  color: #000000; /* 기본 텍스트 색상 */
+  background-color: #ffffff; /* 배경색 */
+}
 
-  .fc-header-toolbar.fc-toolbar  {
-    width: 100%;
-  } 
+/* 제목 스타일 */
+.fc .fc-toolbar-title {
+  font-size: 3.3rem;
+  font-family: pretendard;
+  color: #000000; /* 제목 색상 */
+  opacity: 0.5;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
 
-  /* 버튼 크기 조정 */
+/* 헤더 툴바 */
+.fc-header-toolbar.fc-toolbar {
+  width: 100%;
+  background-color: #ffffff; /* 헤더 배경색 */
+  border-bottom: 1px solid #000000; /* 헤더 하단 경계선 */
+  color: #000000; /* 텍스트 색상 */
+}
 
-  .fc-button.fc-button-primary {
-    font-size: 2rem; /* 버튼 텍스트 크기 */
-    padding: 0.5rem 1rem; /* 버튼 내부 여백 */
-    border-radius: 5px; /* 버튼 모서리 */
-  }
-  
-  .fc-today-button.fc-button.fc-button-primary {
-    display: none;
-  }
-  
-  /* 버튼 컨테이너 조정 (옵션) */
-  .fc-toolbar-chunk {
-    display: flex;
-    width: 100%;
-    gap: 0.5rem; /* 버튼 간격 조정 */
-  }
-  
+/* 버튼 스타일 */
+.fc-button.fc-button-primary {
+  font-size: 1.5rem; /* 버튼 텍스트 크기 */
+  padding: 1rem 2em; /* 버튼 내부 여백 */
+  border-radius: 4px; /* 버튼 모서리 */
+  background-color: #F5F5F5; /* 버튼 배경색 */
+  border-color: #000000; /* 버튼 테두리 색상 */
+  color: #000000; /* 버튼 텍스트 색상 */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.fc-button.fc-button-primary:hover,
+.fc-button.fc-button-primary:active {
+  background-color: #EA4343; /* 활성화 시 배경색 */
+  border-color: transparent; /* 활성화 시 테두리 색상 */
+  color: #2E2E2E; /* 활성화 시 텍스트 색상 */
+}
+
+/* 오늘 버튼 숨김 */
+.fc-today-button.fc-button.fc-button-primary {
+  display: none;
+}
+
+/* 버튼 컨테이너 조정 (옵션) */
+.fc-toolbar-chunk {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem; /* 버튼 간격 조정 */
+}
+
+/* 달력의 날짜 셀 스타일 */
+.fc-daygrid-day {
+  background-color: #ffffff; /* 날짜 셀 배경색 */
+  border: 1px solid #000000; /* 날짜 셀 경계선 */
+  color: #616161; /* 날짜 텍스트 색상 */
+  font-size: 1.8rem;
+}
+
+/* 오늘 날짜 스타일 */
+.fc-daygrid-day.fc-day-today {
+  background-color: #F5F5F5 !important; /* 오늘 날짜 배경색 */
+  border: 2px solid #EA4343; /* 오늘 날짜 테두리 */
+  color: #EA4343; /* 오늘 날짜 텍스트 */
+}
+
+/* 이벤트 스타일 */
+.fc-event {
+  background-color: #EA4343; /* 이벤트 배경색 */
+  border: none; /* 이벤트 테두리 색상 */
+  color: #2E2E2E; /* 이벤트 텍스트 색상 */
+  font-size: 1.2rem; /* 이벤트 텍스트 크기 */
+  padding: 0.3rem; /* 이벤트 내부 여백 */
+  border-radius: 4px; /* 이벤트 모서리 */
+}
+
+.fc-event:hover {
+  background-color: #616161; /* 이벤트 hover 배경색 */
+  color: #EA4343; /* 이벤트 hover 텍스트 색상 */
+}
+
+/* 스크롤바 스타일 */
+.fc-scroller {
+  scrollbar-width: thin; /* 스크롤바 두께 */
+  scrollbar-color: #616161 #F5F5F5; /* 스크롤바 색상 */
+}
+
+/* 가로 스크롤바 (웹킷 브라우저 전용) */
+.fc-scroller::-webkit-scrollbar {
+  height: 8px; /* 스크롤바 높이 */
+  background-color: #2E2E2E; /* 스크롤바 트랙 색상 */
+}
+
+.fc-scroller::-webkit-scrollbar-thumb {
+  background-color: #616161; /* 스크롤바 손잡이 색상 */
+  border-radius: 4px; /* 손잡이 모서리 */
+}

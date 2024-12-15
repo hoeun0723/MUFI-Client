@@ -8,6 +8,7 @@ import QnA from '../pages/QnA/QnA';
 import CustomFrame from '../pages/CustomFrame/CustomFrame';
 import Login from '../pages/Login/Login';
 import LoginCallback from '../components/KakaoLogin/LoginCallback/LoginCallback';
+import Admin from '../pages/Admin/Admin';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login/>,
+      },
+      {
+        path: '/admin',
+        element: <Admin/>,
       },
     ]
   }
